@@ -7,9 +7,11 @@
 
     <!-- Bootstrap CSS -->
 
-    {% comment %} <title>{% block  %}Handicraft{% endblock  %}</title> {% endcomment %}
+    <title>{% block title %}Handicraft{% endblock title %}</title>
     {% load static %}
         <!-- Include CSS files -->
+       
+        {% block styles %}
         <link rel="stylesheet" href="{% static 'assets/css/animate.min.css' %}">
          <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
         <link rel="stylesheet" href="{% static 'assets/css/flaticon.css' %}">
@@ -25,7 +27,11 @@
         <link rel="stylesheet" href="{% static 'assets/css/slicknav.css' %}">
         <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
         <link rel="stylesheet" href="{% static 'assets/css/themify-icons.css' %}"> 
+
+        {% endblock styles %}
   </head>
+
+  
   <body>
     
       <!-- Navigation Bar -->
@@ -73,7 +79,7 @@
                         <div class="main-menu d-none d-lg-block">
                             <nav>                                                
                                 <ul id="navigation">  
-                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="#">Home</a></li>
                                     <li><a href="categories.html">Men</a></li>
                                     <li><a href="categories.html">Women</a></li>
                                     <li class="new"><a href="categories.html">Baby Collection</a></li>
@@ -92,7 +98,7 @@
                                             <li><a href="blog-details.html">Blog Details</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="Contact.html">Contact</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -133,11 +139,11 @@
     </header>
 
  
-     <!-- Main Content -->
-     <main>
-        {% block content %}
-        <!-- Dynamic content will go here -->
-        {% endblock %}
+       <!-- Main Content -->
+       <main class="container mt-4">
+        {% block body %}
+        <!-- Page-specific content will go here -->
+        {% endblock body %}
     </main>
 
   <footer>
@@ -236,8 +242,8 @@
                                 <li><a href="#">Support</a></li>
                                 <li><a href="#">FAQ</a></li>
                                 <li><a href="#">Carrier</a></li>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="about.html">About</a></li>
+                                <li><a href="Contact.html">Contact Us</a></li>
                             </ul>
                         </div>
                     </div>
@@ -263,6 +269,8 @@
 </div>
 </footer>
 
+{% block scripts %}
+<!-- Page-specific scripts can be added here -->
     <!-- Include JavaScript files -->
      
 
@@ -282,5 +290,7 @@
     <script src="{% static 'assets/js/wow.min.js' %}"></script>
     <script src="{% static 'assets/js/vendor/jquery-1.12.4.min.js' %}"></script>
     <script src="{% static 'assets/js/vendor/modernizr-3.5.0.min.js' %}"></script> 
+{% endblock scripts %}
+
   </body>
 </html>
